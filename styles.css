@@ -1,4 +1,4 @@
-/* VERSION 1 - Isabella (rojo y plateado) */
+/* VERSION 1 - Valentina (rojo y plateado) */
 :root{
   --navy:#4a0d19;--blue:#b3202f;--sky:#f3dfe1;--ice:#faf3f3;--silver:#a9afba;
   --base:#fbf7f7;
@@ -241,7 +241,7 @@ body{font-family:'Montserrat',sans-serif;color:var(--navy);text-align:center;lin
 @media (prefers-reduced-motion:reduce){.rsvp-card .note{animation:none}}
 
 
-/* ===== Isabella: ajustes ===== */
+/* ===== Valentina: ajustes ===== */
 .cover{padding-top:175px}                       /* deja lugar a la corona y la rosa del fondo de arriba */
 .closing p:not(.script){font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.5rem;line-height:1.5;color:var(--navy);text-wrap:balance}
 .rsvp-card .ico-gif{margin-bottom:0}
