@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIS SOÑADOS 15 AÑOS - VALENTINA</title>
-<link rel="stylesheet" href="styles.css?v=41">
+<link rel="stylesheet" href="styles.css?v=44">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,6 +26,7 @@
 
 <!-- 1. BIENVENIDA + SOBRE (el póster de fondo se define en styles.css) -->
 <div id="welcome-screen">
+  <video class="bg-video" src="fondo-bienvenida.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   <div class="welcome-content">
     <h1 class="neon">Valentina</h1>
     <p class="welcome-sub">Mis quince años</p>
@@ -92,6 +93,7 @@
 
   <!-- 4. FECHA + CUENTA REGRESIVA -->
   <section class="date-section">
+    <img src="deco-flores.webp" alt="" class="deco deco-date" aria-hidden="true">
     <img data-icon="icono-calendario" alt="" class="ico-gif" aria-hidden="true" data-replay>
     <p class="date-month">diciembre</p>
     <div class="date-row">
@@ -126,6 +128,7 @@
 
   <!-- 6. DRESS CODE -->
   <section class="center-section">
+    <img src="deco-petalos.webp" alt="" class="deco deco-dress" aria-hidden="true">
     <img data-icon="icono-vestimenta" alt="" class="ico-gif" aria-hidden="true">
     <h2 class="script big">Dress Code</h2>
     <p class="label">Elegante</p>
@@ -135,6 +138,7 @@
 
   <!-- 7. REGALO (aparece solo si hay alias en script.js) -->
   <section id="gift-section" class="center-section hidden">
+    <img src="deco-petalos.webp" alt="" class="deco deco-regalo" aria-hidden="true">
     <img data-icon="icono-regalos" alt="" class="ico-gif" aria-hidden="true">
     <h2 class="script big">¡El mejor regalo es tu presencia!</h2>
     <p class="small">Pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente</p>
@@ -145,6 +149,7 @@
 
   <!-- 8. FOTOS -->
   <section class="duo">
+    <img src="deco-flores.webp" alt="" class="deco deco-duo" aria-hidden="true">
     <img src="foto4.png" data-foto="4" data-framed alt="Valentina" class="polaroid d1">
     <img src="foto5.png" data-foto="5" data-framed alt="Valentina" class="polaroid d2">
   </section>
@@ -172,6 +177,6 @@
   </div>
 </main>
 
-<script src="script.js?v=40"></script>
+<script src="script.js?v=41"></script>
 </body>
 </html>
