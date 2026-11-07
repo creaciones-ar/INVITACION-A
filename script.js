@@ -59,14 +59,6 @@ $('btn-repeat').onclick = e => e.currentTarget.classList.toggle('on');
 $('btn-shuffle').onclick = e => e.currentTarget.classList.toggle('on');
 $('yt-player').style.cssText = 'position:fixed;left:-9999px;width:1px;height:1px';
 
-/* ===== Video de bienvenida: si arranca, los textos pasan a blanco (ver .has-video en styles.css) ===== */
-const bgVideo = document.querySelector('.bg-video');
-if (bgVideo) {
-  bgVideo.addEventListener('playing', () => $('welcome-screen').classList.add('has-video'));
-  bgVideo.addEventListener('error', () => bgVideo.remove());      // si el archivo no está, se ve la decoración de respaldo
-  bgVideo.play && bgVideo.play().catch(() => {});
-}
-
 /* ===== Abrir sobre: tocar el sello -> se rompe, se abre la solapa, sube la carta, entra la invitación ===== */
 $('open-btn').addEventListener('click', function () {
   const env = $('envelope'), screen = $('welcome-screen');
