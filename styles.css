@@ -94,8 +94,6 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 
 /* ===== Columna central + fondo continuo (arriba / abajo; el centro lo pone la imagen de respiro) ===== */
 #main-content{position:relative;max-width:480px;margin:0 auto;overflow:hidden;box-shadow:0 0 40px rgba(16,38,141,.18)}
-/* marco fino doble alrededor de toda la invitación */
-#main-content::after{content:"";position:absolute;inset:10px;z-index:5;pointer-events:none;border:1px solid rgba(16,38,141,.45);outline:1px solid rgba(16,38,141,.2);outline-offset:-15px}
 
 .page{position:relative;max-width:480px;margin:0 auto;overflow:hidden;isolation:isolate;background:var(--base)}
 .page::before{                                  /* decoración de arriba, con degradé hacia el centro */
