@@ -122,7 +122,7 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 
 /* ===== Texto + fotos ===== */
 .story-section{display:flex;align-items:center;gap:6px;padding:var(--sec-y) 4px var(--sec-y) 18px}
-.story-text{flex:1 1 0;min-width:0;align-self:center;text-align:center;font-family:'Lato',sans-serif;font-weight:400;font-size:1.05rem;line-height:1.55;color:var(--navy)} /* el tamaño real lo calcula script.js */
+.story-text{flex:1 1 0;min-width:0;align-self:center;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.15rem;line-height:1.55;color:var(--navy)} /* solo este texto va en Cormorant; el tamaño real lo calcula script.js */
 .story-photos{flex:0 0 53%;display:flex;flex-direction:column;align-items:flex-end}
 .polaroid{display:block;width:100%;height:auto;border:6px solid var(--navy);box-shadow:0 8px 18px rgba(16,38,141,.3)}
 .p1{transform:rotate(3deg);position:relative;z-index:1}
