@@ -1,12 +1,12 @@
 /* ===== CONFIGURACIÓN (editar solo acá) ===== */
 const CONFIG = {
-  fecha: "December 13, 2026 21:00:00",        // HORA PROVISORIA (21:00): confirmar con Valentina
-  youtubeId: "j3ObHjm1fAE",                               // código del video de YouTube de la canción. Vacío = no aparece el reproductor
-  inicio: 30,                                  // segundo desde el que suena la canción (30 = salta los primeros 30 s de intro)
-  whatsapp: "5491165286830",                   // 54 + 9 + número (confirmar que sea el WhatsApp)
-  mapsUrl: "https://maps.app.goo.gl/y8uJtqJ5FoqePBLZ6",                                 // link de Google Maps del salón. Vacío = no aparece el botón
-  alias: "valentina",                                   // alias o CBU. Vacío = no aparece la sección de regalos
-  confirmarAntes: "Confirmar antes del 1 de diciembre",                          // por ejemplo "Confirmar antes del 1 de diciembre". Vacío = no aparece
+  fecha: "December 12, 2026 21:00:00",        // sábado 12 de diciembre, 21:00 (HORA PROVISORIA: confirmar con Valentina)
+  youtubeId: "j3ObHjm1fAE",                   // código del video de YouTube de la canción. Vacío = no aparece el reproductor
+  inicio: 30,                                 // segundo desde el que suena la canción (30 = salta la intro)
+  whatsapp: "5491165286830",                  // 54 + 9 + número (CONFIRMAR que sea el de Valentina)
+  mapsUrl: "https://maps.app.goo.gl/y8uJtqJ5FoqePBLZ6",   // link de Google Maps del salón. Vacío = no aparece el botón
+  alias: "valentina",                         // alias o CBU (CONFIRMAR). Vacío = no aparece la sección de regalos
+  confirmarAntes: "Confirmar antes del 1 de diciembre",   // Vacío = no aparece
   mensajeWa: "Hola! Confirmo mi asistencia a los XV de Valentina"
 };
 
@@ -18,17 +18,6 @@ $('wa-btn').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(C
 if (CONFIG.mapsUrl) { $('maps-btn').href = CONFIG.mapsUrl; show('maps-btn'); }
 if (CONFIG.alias) { $('alias').textContent = CONFIG.alias; show('gift-section', 'gift-respiro'); }
 if (CONFIG.confirmarAntes) { $('confirm-note').textContent = CONFIG.confirmarAntes; show('confirm-note'); }
-if (CONFIG.playlistUrl) { $('playlist-link').href = CONFIG.playlistUrl; show('playlist-section', 'playlist-respiro'); }
-if (CONFIG.albumUrl) {
-  $('album-link').href = CONFIG.albumUrl;
-  show('album-section', 'album-respiro');
-  try {                                              // el QR se genera en el propio celular
-    const qr = qrcode(0, 'M'); qr.addData(CONFIG.albumUrl); qr.make();
-    $('qr').src = qr.createDataURL(8, 0); $('qr').style.imageRendering = 'pixelated';
-  } catch (err) {
-    $('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=' + encodeURIComponent(CONFIG.albumUrl);
-  }
-}
 if (!CONFIG.youtubeId) $('player').classList.add('hidden');   // sin canción no hay reproductor
 
 /* ===== Música (YouTube oculto + reproductor propio) ===== */
