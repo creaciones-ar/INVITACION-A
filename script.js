@@ -5,7 +5,7 @@ const CONFIG = {
   inicio: 15,                                 // segundo desde el que suena la canción (30 = salta la intro)
   whatsapp: "5491158265942",                  // 54 + 9 + número (CONFIRMAR que sea el de Valentina)
   mapsUrl: "https://maps.app.goo.gl/wMsCjcH23YjNU4ht8?g_st=aw",   // link de Google Maps del salón. Vacío = no aparece el botón
-  alias: "valentina",                         // alias o CBU (CONFIRMAR). Vacío = no aparece la sección de regalos
+  alias: "valen.zof",                         // alias o CBU (CONFIRMAR). Vacío = no aparece la sección de regalos
   confirmarAntes: "Confirmar antes del 1 de diciembre",   // Vacío = no aparece
   mensajeWa: "Hola! Confirmo mi asistencia a los XV de Valentina"
 };
