@@ -18,7 +18,14 @@ const $ = id => document.getElementById(id);
 const show = (...ids) => ids.forEach(i => $(i).classList.remove('hidden'));
 $('wa-btn').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensajeWa)}`;
 if (CONFIG.mapsUrl) { $('maps-btn').href = CONFIG.mapsUrl; show('maps-btn'); }
-if (CONFIG.alias) { $('alias').textContent = CONFIG.alias; show('gift-section', 'gift-respiro'); }
+if (CONFIG.alias || CONFIG.cvu) {
+  $('alias').textContent = CONFIG.alias;
+  $('cvu').textContent = CONFIG.cvu;
+  $('gift-title').textContent = CONFIG.titular;
+  if (!CONFIG.alias) $('row-alias').classList.add('hidden');
+  if (!CONFIG.cvu) $('row-cvu').classList.add('hidden');
+  show('gift-section', 'gift-respiro');
+}
 if (CONFIG.confirmarAntes) { $('confirm-note').textContent = CONFIG.confirmarAntes; show('confirm-note'); }
 if (!CONFIG.youtubeId) $('player').classList.add('hidden');   // sin canción no hay reproductor
 
@@ -93,20 +100,30 @@ const tick = () => {
 const timer = setInterval(tick, 1000);
 tick();
 
-/* ===== Copiar alias ===== */
-$('copy-alias').onclick = async e => {
-  const btn = e.currentTarget, txt = $('alias').textContent.trim();
-  try {
-    await navigator.clipboard.writeText(txt);
-  } catch {
-    const t = document.createElement('textarea');
-    t.value = txt; document.body.appendChild(t); t.select();
-    try { document.execCommand('copy'); } catch { }
-    t.remove();
-  }
-  btn.textContent = '¡Copiado!';
-  setTimeout(() => btn.textContent = 'Copiar alias', 2000);
-};
+/* ===== Ventana de regalo + copiar alias / CVU ===== */
+const modal = $('gift-modal');
+const openGift = () => { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; };
+const closeGift = () => { modal.classList.add('hidden'); document.body.style.overflow = ''; };
+$('open-gift').onclick = openGift;
+$('close-gift').onclick = closeGift;
+modal.addEventListener('click', e => { if (e.target === modal) closeGift(); });   // tocar afuera cierra
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGift(); });
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.onclick = async () => {
+    const txt = $(btn.dataset.copy).textContent.trim();
+    try {
+      await navigator.clipboard.writeText(txt);
+    } catch {
+      const t = document.createElement('textarea');
+      t.value = txt; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch { }
+      t.remove();
+    }
+    btn.textContent = '¡Copiado!';
+    setTimeout(() => btn.textContent = btn.dataset.label, 2000);
+  };
+});
 
 /* ===== Fotos: busca automáticamente el archivo correcto =====
    Prueba: foto3.png, "foto 3.png", foto_3.png, .jpg, .jpeg, .webp (y mayúsculas).
