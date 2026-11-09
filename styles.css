@@ -331,3 +331,32 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 
 /* Texto de la historia: columna de texto más ancha para que la letra crezca */
 .story-photos{flex:0 0 47%}
+
+/* ===== TÍTULOS MÁS CHICOS (para que no se partan) ===== */
+.place-info .script.big{
+  font-size:calc(min(100vw,480px) * .075);   /* se adapta al ancho del celular */
+  line-height:1.1;
+  white-space:nowrap;                        /* "Lugar del evento" siempre en una línea */
+}
+.center-section .script.big{font-size:2.1rem}   /* El mejor regalo..., Dress code */
+.rsvp-card .script.big{font-size:2.1rem}        /* Confirmación de asistencia */
+.date-section .script.big{font-size:2.8rem}     /* Faltan */
+.closing .script.big{font-size:3.2rem}
+
+/* ===== FOTO DEL LUGAR: tamaño fijo, centrada, sin deformarse ===== */
+.place-section{
+  align-items:center;            /* antes estiraba la foto al alto de la columna */
+  padding:calc(var(--sec-y)*.6) 0;
+}
+.place-photo{
+  align-self:center;
+  width:calc(100% - 16px);       /* deja aire a la izquierda, no pegada al borde */
+  margin:0 0 0 14px;
+  height:auto;
+  aspect-ratio:3/4;              /* proporción fija, no cambia aunque el texto crezca */
+  object-fit:cover;
+  object-position:center 25%;    /* prioriza la cara */
+  border:5px solid var(--navy);  /* mismo marco que las otras fotos */
+  box-shadow:0 8px 18px rgba(16,38,141,.3);
+  filter:none;
+}
