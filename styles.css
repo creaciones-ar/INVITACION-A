@@ -1,18 +1,27 @@
-/* VERSION 2 - Valentina (azul #10268d + mármol) */
+/* VERSION 3 (ordenada) - Valentina (azul #10268d + mármol) */
 @font-face{font-family:'Slight';src:url('Slight.woff2') format('woff2'),url('Slight.otf') format('opentype'),url('Slight.ttf') format('truetype');font-display:swap}
+
+/* =====================================================
+   1. VARIABLES  (colores, tipografías, medidas)
+   ===================================================== */
 :root{
   --navy:#10268d;          /* azul principal: textos, marcos, botones, sobre */
   --blue:#2a47c2;          /* azul más claro para detalles */
   --sky:#dfe6f7;--silver:#a9afba;
   --base:#f6f7fb;
-  --frame:#10268d;         /* color de marcos de fotos y botones */
+  --frame:#10268d;
   --col:min(100vw,480px);  /* ancho real de la columna */
-  --sec-y:26px;            /* espacio vertical de cada sección (antes 40) */
-  --respiro:64px;          /* alto de cada separación con degradé (antes 150) */
-  /* ===== IMÁGENES DE FONDO: para otra invitación cambiá solo estas 3 líneas ===== */
-  --img-arriba:url('fondo-arriba.webp');      /* decoración de arriba de la página y de la bienvenida */
-  --img-abajo:url('fondo-abajo.webp');        /* decoración de abajo de la página y de la bienvenida */
-  --img-centro:url('fondo-mariposas.jpg');    /* se usa entre secciones y detrás de la confirmación */
+  --sec-y:26px;            /* espacio vertical de cada sección */
+  --respiro:64px;          /* alto de cada separación con degradé */
+
+  /* TIPOGRAFÍAS: probá 'Great Vibes' | 'Allura' | 'Pinyon Script' */
+  --titulo:'Pinyon Script',cursive;
+  --serif:'Cormorant Garamond',serif;
+
+  /* IMÁGENES DE FONDO */
+  --img-arriba:url('fondo-arriba.webp');
+  --img-abajo:url('fondo-abajo.webp');
+  --img-centro:url('fondo-mariposas.jpg');
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-height:1.6;background:linear-gradient(#e9eef9,#f3f5fb) fixed}
@@ -20,9 +29,10 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .script{font-family:'Slight','Great Vibes',cursive;font-weight:400}
 .script.big{font-size:2.4rem;line-height:1.15;text-wrap:balance}
 
-/* ===== Pantalla de bienvenida (póster fijo) + sobre ===== */
+/* =====================================================
+   2. BIENVENIDA + SOBRE
+   ===================================================== */
 #welcome-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f3f5fb;transition:opacity .6s}
-/* decoración de arriba y de abajo de la bienvenida, con degradé hacia el centro */
 #welcome-screen::before,#welcome-screen::after{content:"";position:absolute;left:50%;width:min(100vw,520px);aspect-ratio:736/597;transform:translateX(-50%);background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
 #welcome-screen::before{top:0;background-image:var(--img-arriba);-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%)}
 #welcome-screen::after{bottom:0;background-image:var(--img-abajo);-webkit-mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%);mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%)}
@@ -43,7 +53,6 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .letter-name{font-size:2.6rem;line-height:1.1}
 .letter-line{width:46px;height:1px;background:var(--silver)}
 
-/* marco fino + ornamentos de esquina + destellos del sobre */
 .env-orn{inset:0;z-index:6;pointer-events:none}
 .env-orn::before{content:"";position:absolute;inset:7px;border:1.2px solid rgba(255,255,255,.75);border-radius:4px;transition:opacity .5s}
 .orn{position:absolute;width:56px;height:56px;fill:none;stroke:rgba(255,255,255,.92);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;overflow:visible;transition:opacity .4s}
@@ -63,7 +72,6 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .s7{--x:71%;--y:40%;--s:9px;--d:2.2s}
 @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1) rotate(20deg)}}
 
-/* Sello plateado con la letra en azul */
 .seal{left:50%;top:56%;width:62px;height:62px;margin:-31px 0 0 -31px;z-index:7;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent;
   background:radial-gradient(circle at 32% 28%,#ffffff 0,#eef1f6 20%,#b5bfce 55%,#7f8b9f 100%);
   box-shadow:0 5px 12px rgba(8,21,88,.5),inset 0 2px 3px rgba(255,255,255,.9),inset 0 -4px 6px rgba(60,75,100,.45);
@@ -73,7 +81,6 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .seal::after{content:"";position:absolute;inset:11%;border-radius:50%;border:1.5px solid rgba(70,85,110,.45);box-shadow:inset 0 2px 4px rgba(60,75,100,.35),0 1px 0 rgba(255,255,255,.7);pointer-events:none}
 @keyframes ring{from{transform:scale(.85);opacity:.9}to{transform:scale(1.5);opacity:0}}
 
-/* Estado abierto */
 .envelope.open{animation:none}
 .envelope.open .seal{transform:scale(1.5) rotate(12deg);opacity:0;pointer-events:none}
 .envelope.open .seal::before{animation:none}
@@ -87,35 +94,72 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 @keyframes float{50%{transform:translateY(-8px)}}
 @keyframes pulse{50%{opacity:.45}}
 
-/* ===== Columna central + fondo continuo (arriba / abajo; el centro lo pone la imagen de respiro) ===== */
+/* =====================================================
+   3. COLUMNA CENTRAL + FONDO + RESPIROS
+   ===================================================== */
 #main-content{position:relative;max-width:480px;margin:0 auto;overflow:hidden;box-shadow:0 0 40px rgba(16,38,141,.18)}
-
 .page{position:relative;max-width:480px;margin:0 auto;overflow:hidden;isolation:isolate;background:var(--base)}
-.page::before{                                  /* decoración de arriba, con degradé hacia el centro */
-  content:"";position:absolute;left:0;right:0;top:0;z-index:-1;pointer-events:none;
-  aspect-ratio:736/597;
+.page::before{content:"";position:absolute;left:0;right:0;top:0;z-index:-1;pointer-events:none;aspect-ratio:736/597;
   background:var(--img-arriba) top center/100% 100% no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%);
           mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%)}
-.page::after{                                   /* decoración de abajo, con degradé hacia el centro */
-  content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;
-  aspect-ratio:736/597;
+.page::after{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;aspect-ratio:736/597;
   background:var(--img-abajo) bottom center/100% 100% no-repeat;
   -webkit-mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%);
           mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%)}
 .cover,.story-section,.date-section,.center-section,.place-section,.duo,.rsvp,.closing{background:none}
-/* ===== Respiro entre secciones: aire + imagen del centro con degradé (sin líneas) =====
-   Más o menos espacio: --respiro. Más o menos visible: opacity. */
+
 .respiro{position:relative;height:var(--respiro);margin:-8px 0;pointer-events:none}
 .respiro::before{content:"";position:absolute;inset:0;background:var(--img-centro) center/cover no-repeat;opacity:.9;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 38%,#000 62%,transparent 100%);
           mask-image:linear-gradient(to bottom,transparent 0,#000 38%,#000 62%,transparent 100%)}
-/* alternan para que no se repita siempre el mismo recorte */
 .respiro:nth-of-type(even)::before{background-position:center 15%;transform:scaleX(-1)}
 .respiro:nth-of-type(3n)::before{background-position:center 85%}
 
-/* ===== Portada ===== */
-.cover{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:230px 24px 6px}  /* 230px = lugar para las flores de arriba */
+/* =====================================================
+   4. TIPOGRAFÍA GLOBAL
+   Cormorant derecha para textos, script (--titulo) para títulos grandes
+   ===================================================== */
+
+/* Títulos grandes en script */
+.date-section .script.big,
+.place-info .script.big,
+.center-section .script.big,
+.rsvp-card .script.big{font-family:var(--titulo);font-weight:400}
+
+/* Textos en Cormorant, con números "derechos" (21:00, 5412, 15...) */
+.story-text,.kicker,.small,.label,.small-caps,.note,
+.place-info h3,.place-info p,
+.date-month,.date-row>span,.date-day small,.time-box p,
+.closing p:not(.script){
+  font-family:var(--serif);
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1;
+}
+
+/* Título chico en mayúsculas espaciadas (DRESS CODE, UN NUEVO CAPÍTULO) */
+.kicker{font-weight:600;font-size:1.2rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
+.label{font-size:1rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+.small-caps{font-size:.9rem;letter-spacing:.2em;padding-left:.2em;text-transform:uppercase;font-weight:600;max-width:340px;margin-top:6px}
+.small{font-size:1.2rem;font-weight:500;letter-spacing:.04em;line-height:1.5;max-width:340px}
+.note{font-size:.9rem;letter-spacing:.08em;opacity:.85}
+.alias{font-size:1.15rem;font-weight:700;letter-spacing:.12em}
+
+/* Botones (siguen en Lato) */
+.btn{display:inline-block;min-width:184px;margin-top:12px;padding:15px 30px 9px calc(30px + .15em);border-radius:25px;font-family:'Lato',sans-serif;font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:.15em;text-align:center;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s;-webkit-appearance:none;appearance:none}
+.btn.solid{
+  margin:17px 5px 5px;padding-top:13px;padding-bottom:7px;color:#fff;
+  border:3px solid transparent;
+  background:linear-gradient(90deg,#071747 0%,#10268d 50%,#071747 100%) padding-box,
+             linear-gradient(90deg,#8e99ad,#ffffff 50%,#8e99ad) border-box;
+  box-shadow:0 0 0 5px #1b3a7c,0 8px 16px rgba(16,38,141,.38),
+             inset 0 2px 3px rgba(255,255,255,.22),inset 0 -4px 6px rgba(0,0,0,.35)}
+.btn:hover{opacity:.85}
+
+/* =====================================================
+   5. PORTADA
+   ===================================================== */
+.cover{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:230px 24px 6px}
 .cover-name{width:100%;display:flex;justify-content:center;margin:6px 0 12px}
 .cover-name img{width:min(88%,380px);height:auto;display:block}
 .player{width:100%;max-width:300px;margin:10px 0 18px}
@@ -131,12 +175,15 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .play.playing .i-play{display:none}.play.playing .i-pause{display:block}
 .mis15{margin-top:8px;margin-bottom:24px;display:flex;justify-content:center}
 .mis15 img{width:min(86%,360px);height:auto;display:block;margin:0 auto}
-.cover-name img,.mis15 img{mix-blend-mode:multiply}   /* si el PNG trae fondo blanco, lo hace desaparecer */
+.cover-name img,.mis15 img{mix-blend-mode:multiply}
 
-/* ===== Texto + fotos ===== */
+/* =====================================================
+   6. TEXTO DE LA HISTORIA + FOTOS
+   (el tamaño de letra lo calcula fitStory() en script.js)
+   ===================================================== */
 .story-section{display:flex;align-items:center;gap:6px;padding:var(--sec-y) 4px var(--sec-y) 18px}
-.story-text{flex:1 1 0;min-width:0;align-self:center;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.15rem;line-height:1.55;color:var(--navy)} /* solo este texto va en Cormorant; el tamaño real lo calcula script.js */
-.story-photos{flex:0 0 53%;display:flex;flex-direction:column;align-items:flex-end}
+.story-text{flex:1 1 0;min-width:0;align-self:center;text-align:center;font-style:normal;font-weight:500;font-size:1.15rem;line-height:1.55;letter-spacing:.01em;color:var(--navy)}
+.story-photos{flex:0 0 47%;display:flex;flex-direction:column;align-items:flex-end}
 .polaroid{display:block;width:100%;height:auto;border:6px solid var(--navy);box-shadow:0 8px 18px rgba(16,38,141,.3)}
 .p1{transform:rotate(3deg);position:relative;z-index:1}
 .p2{transform:rotate(-3deg);margin-top:-14px;position:relative;z-index:2}
@@ -144,53 +191,54 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .story-photos .polaroid.framed.p1{transform:translateX(4px);position:relative;z-index:1}
 .story-photos .polaroid.framed.p2{margin-top:-34px;transform:translateX(-8px);position:relative;z-index:2}
 
-/* ===== Fecha + cuenta regresiva ===== */
+/* =====================================================
+   7. FECHA + CUENTA REGRESIVA
+   ===================================================== */
 .date-section{position:relative;padding:var(--sec-y) 20px}
-.date-month{font-size:1.05rem;letter-spacing:.35em;padding-left:.35em;margin-bottom:6px;font-weight:700}
+.date-month{font-size:1.3rem;font-weight:600;letter-spacing:.35em;padding-left:.35em;margin-bottom:6px}
 .date-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin-bottom:34px}
-.date-row>span{font-size:.7rem;letter-spacing:.18em;font-weight:700}
+.date-row>span{font-size:.85rem;letter-spacing:.18em;font-weight:600}
 .date-row>span:first-child{text-align:right;margin-right:-.18em}
 .date-row>span:last-child{text-align:left}
 .date-day{display:flex;flex-direction:column;align-items:center;padding:4px 22px;border-left:2px solid var(--navy);border-right:2px solid var(--navy)}
 .date-day b{font-weight:300;font-size:4rem;line-height:1.05;color:var(--blue)}
-.date-day small{font-size:.65rem;letter-spacing:.25em;padding-left:.25em}
-.date-section .script.big{color:var(--navy);margin-bottom:10px}
+.date-day small{font-size:.8rem;letter-spacing:.25em;padding-left:.25em}
+.date-section .script.big{font-size:2.8rem;color:var(--navy);margin-bottom:10px}
 .countdown-grid{display:flex;justify-content:center;align-items:flex-start;gap:10px}
 .countdown-grid i{font-style:normal;font-size:1.8rem;line-height:1.5}
-.time-box{min-width:52px}
-.time-box span{font-size:2rem;font-weight:400}
-.time-box p{font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.time-box{min-width:56px}
+.time-box span{font-size:2.4rem;font-weight:400}
+.time-box p{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
 
-/* ===== Secciones interiores ===== */
+/* =====================================================
+   8. ICONOS Y SECCIONES CENTRADAS (dress code, regalo)
+   ===================================================== */
 .ico-gif{height:80px!important;width:auto!important;max-width:70%;object-fit:contain;display:block;margin:0 auto 6px;background:none}
 .place-info .ico-gif{height:68px!important;max-width:90%}
-img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no deja un hueco roto */
+img.ico-gif:not([src]){display:none}
 .center-section{position:relative;padding:var(--sec-y) 22px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.center-section .script.big{font-size:2rem;color:var(--navy)}
-.label{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
-.small{font-size:.9rem;letter-spacing:.04em;max-width:320px}
-.note{font-size:.65rem;letter-spacing:.08em;opacity:.85}
-.alias{font-size:1.15rem;font-weight:700;letter-spacing:.12em}
-.btn{display:inline-block;min-width:184px;margin-top:12px;padding:15px 30px 9px calc(30px + .15em);border-radius:25px;font-family:'Lato',sans-serif;font-weight:700;font-size:.82rem;line-height:1.6;letter-spacing:.15em;text-align:center;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s;-webkit-appearance:none;appearance:none} /* el padding compensa el espacio del letter-spacing para que el texto quede centrado */
-.btn.solid{
-  margin:17px 5px 5px;padding-top:13px;padding-bottom:7px;color:#fff;
-  border:3px solid transparent;                         /* aro plateado (degradé metálico) */
-  background:linear-gradient(90deg,#071747 0%,#10268d 50%,#071747 100%) padding-box,
-             linear-gradient(90deg,#8e99ad,#ffffff 50%,#8e99ad) border-box;
-  box-shadow:0 0 0 5px #1b3a7c,                         /* aro azul por fuera del botón */
-             0 8px 16px rgba(16,38,141,.38),
-             inset 0 2px 3px rgba(255,255,255,.22),inset 0 -4px 6px rgba(0,0,0,.35)}
-.btn:hover{opacity:.85}
+.center-section .script.big{font-size:2.1rem;color:var(--navy)}   /* Elegante */
+.center-section .script.big.gift-title{font-size:1.6rem}            /* El mejor regalo... */
 
-/* ===== Lugar ===== */
+.swatches{display:flex;gap:18px;margin:8px 0 2px}
+.swatches i{width:38px;height:38px;border-radius:50%;box-shadow:0 2px 6px rgba(16,38,141,.3),inset 0 0 0 1px rgba(255,255,255,.35)}
+.sw-claro{background:#5b74d0}
+.sw-medio{background:#10268d}
+.sw-noche{background:#071747}
+
+/* =====================================================
+   9. LUGAR (foto con marco hecho a mano, sin bordes extra)
+   ===================================================== */
 .place-section{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding:calc(var(--sec-y)*.6) 0}
 .place-photo{width:100%;height:auto;align-self:stretch;margin:16px 0;display:block;object-fit:cover;object-position:left center;filter:drop-shadow(0 6px 12px rgba(16,38,141,.22))}
 .place-info{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px}
-.place-info .script.big{font-size:1.8rem;line-height:1.1;color:var(--navy)}
-.place-info h3{font-weight:700;font-size:.95rem}
-.place-info p{font-size:.8rem}
+.place-info .script.big{font-size:calc(min(100vw,480px) * .075);line-height:1.1;white-space:nowrap;color:var(--navy)}
+.place-info h3{font-weight:600;font-size:1.25rem}
+.place-info p{font-weight:500;font-size:1.15rem}
 
-/* ===== Dos fotos finales ===== */
+/* =====================================================
+   10. DOS FOTOS FINALES
+   ===================================================== */
 .duo{position:relative;display:flex;flex-direction:column;padding:calc(var(--sec-y)*.6) 0 var(--sec-y);overflow:hidden}
 .duo .polaroid{position:relative;width:62%}
 .duo .d1{align-self:flex-start;margin-left:2%;z-index:1}
@@ -198,22 +246,26 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 .duo .polaroid:not(.framed).d1{transform:rotate(-4deg)}
 .duo .polaroid:not(.framed).d2{transform:rotate(3deg);margin-top:10px}
 
-/* ===== Confirmación y cierre ===== */
+/* =====================================================
+   11. CONFIRMACIÓN Y CIERRE
+   ===================================================== */
 .rsvp{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;padding:44px 18px;overflow:hidden}
 .rsvp::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--img-centro) center/cover no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 80%,transparent 100%);
           mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 80%,transparent 100%)}
 .rsvp-card{width:100%;background:rgba(255,255,255,.65);border-radius:10px;padding:34px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;backdrop-filter:blur(2px)}
-.rsvp-card .script.big{font-size:2rem;line-height:1.15;color:var(--navy)}
+.rsvp-card .script.big{font-size:2.1rem;line-height:1.15;color:var(--navy)}
 .rsvp-card .ico-gif{margin-bottom:0}
 .rsvp-card .note{opacity:1;animation:noteFloat 2.4s ease-in-out infinite}
 @keyframes noteFloat{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.45;transform:translateY(-3px)}}
 @media (prefers-reduced-motion:reduce){.rsvp-card .note{animation:none}}
 .closing{padding:20px 26px 130px;display:flex;flex-direction:column;gap:14px}
-.closing p:not(.script){font-family:'Lato',sans-serif;font-weight:400;font-size:1.15rem;line-height:1.6;color:var(--navy);text-wrap:balance}
-.closing .script.big{font-size:2.8rem;color:var(--navy)}
+.closing p:not(.script){font-weight:500;font-size:1.5rem;line-height:1.6;color:var(--navy);text-wrap:balance}
+.closing .script.big{font-size:3.2rem;color:var(--navy)}
 
-/* ===== Decoraciones sueltas (deco-petalos.webp = moños, deco-flores.webp = flores) ===== */
+/* =====================================================
+   12. DECORACIONES SUELTAS
+   ===================================================== */
 .deco{position:absolute;height:auto;pointer-events:none;z-index:0}
 .date-section>*:not(.deco),.center-section>*:not(.deco){position:relative;z-index:1}
 .deco-date{left:-26px;top:176px;width:84px}
@@ -221,131 +273,17 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 .deco-regalo{left:-48px;top:-46px;width:110px}
 .deco-duo{right:-30px;top:-10px;width:300px}
 
-/* ===== Dress code: color reservado ===== */
-.small-caps{font-size:.72rem;letter-spacing:.2em;padding-left:.2em;text-transform:uppercase;font-weight:700;max-width:300px;margin-top:6px}
-.swatches{display:flex;gap:18px;margin:8px 0 2px}
-.swatches i{width:38px;height:38px;border-radius:50%;box-shadow:0 2px 6px rgba(16,38,141,.3),inset 0 0 0 1px rgba(255,255,255,.35)}
-.sw-claro{background:#5b74d0}   /* tono claro */
-.sw-medio{background:#10268d}   /* el azul de la invitación */
-.sw-noche{background:#071747}   /* azul noche profundo */
-
-/* ===== Ventana de datos para el regalo ===== */
+/* =====================================================
+   13. VENTANA DE DATOS PARA EL REGALO
+   ===================================================== */
 .modal{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(7,23,71,.55);backdrop-filter:blur(3px);animation:modalIn .3s ease}
 @keyframes modalIn{from{opacity:0}to{opacity:1}}
 .modal-card{position:relative;width:100%;max-width:380px;max-height:90vh;overflow-y:auto;background:#fff;border-radius:6px;padding:40px 24px 30px;text-align:center;color:var(--navy);box-shadow:0 20px 50px rgba(0,0,0,.35);animation:cardIn .35s ease}
 @keyframes cardIn{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 .modal-close{position:absolute;top:8px;right:12px;background:none;border:0;font-size:2rem;line-height:1;color:var(--navy);cursor:pointer;padding:4px 8px}
-.modal-kicker{font-family:'Cormorant Garamond',serif;font-style:normal;font-weight:600;font-size:.95rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
-.modal-title{font-family:'Great Vibes',cursive;font-weight:400;font-size:2.4rem;line-height:1.15;margin:8px 0 22px;text-wrap:balance}
+.modal-kicker{font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
+.modal-title{font-family:var(--titulo);font-weight:400;font-size:2.4rem;line-height:1.15;margin:8px 0 22px;text-wrap:balance}
 .data-row{padding:16px 0 20px;border-top:1px solid rgba(16,38,141,.18)}
-.data-label{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.85rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
-.data-value{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;line-height:1.3;margin-top:4px;word-break:break-all;letter-spacing:.03em}
+.data-label{font-family:var(--serif);font-weight:600;font-size:.85rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
+.data-value{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.3;margin-top:4px;word-break:break-all;letter-spacing:.03em;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 .modal .btn.solid{min-width:160px;margin:14px 5px 4px}
-
-/* ===== TIPOGRAFÍAS ===== */
-:root{
-  /* Probá una por vez: 'Great Vibes' | 'Allura' | 'Pinyon Script' */
-  --titulo:'Great Vibes',cursive;
-  --serif:'Cormorant Garamond',serif;
-}
-
-/* Títulos de las secciones (Faltan, Lugar del evento, Dress code, Regalo, Confirmación) */
-.date-section .script.big,
-.place-info .script.big,
-.center-section .script.big,
-.rsvp-card .script.big{
-  font-family:var(--titulo);
-  font-weight:400;
-}
-
-/* Texto de la historia: Cormorant derecha, como "Un nuevo capítulo" */
-.story-text{
-  font-family:var(--serif);
-  font-style:normal;
-  font-weight:500;
-  letter-spacing:.01em;
-}
-
-/* Títulos chicos en mayúsculas espaciadas */
-.kicker{
-  font-family:var(--serif);
-  font-weight:600;
-  font-size:.95rem;
-  letter-spacing:.3em;
-  padding-left:.3em;
-  text-transform:uppercase;
-}
-
-/* Textos de apoyo en Cormorant */
-.small,.label,.small-caps,.note,
-.place-info h3,.place-info p,
-.date-month,.date-row>span,.time-box p,
-.closing p:not(.script){
-  font-family:var(--serif);
-}
-.small,.place-info p,.closing p:not(.script){font-weight:500}
-.label,.small-caps,.date-month,.place-info h3{font-weight:600}
-.small{font-size:1rem}
-.place-info p{font-size:.95rem}
-.closing p:not(.script){font-size:1.3rem}
-
-/* ===== AJUSTE DE TAMAÑOS (todo un poco más grande) ===== */
-
-/* Números siempre "derechos" (sin estilo antiguo de Cormorant) */
-.story-text,.small,.label,.small-caps,.note,.kicker,
-.place-info h3,.place-info p,.date-month,.date-row>span,
-.date-day small,.time-box p,.closing p{
-  font-variant-numeric:lining-nums;
-  font-feature-settings:"lnum" 1;
-}
-
-/* Títulos script */
-.date-section .script.big{font-size:3.4rem}
-.center-section .script.big{font-size:3rem}
-.place-info .script.big{font-size:2.5rem;line-height:1.05}
-.rsvp-card .script.big{font-size:2.8rem}
-.closing .script.big{font-size:3.6rem}
-
-/* Títulos chicos en mayúsculas espaciadas */
-.kicker{font-size:1.2rem}
-.label{font-size:1rem}
-.small-caps{font-size:.9rem;max-width:340px}
-
-/* Textos de apoyo */
-.small{font-size:1.2rem;max-width:340px;line-height:1.5}
-.note{font-size:.9rem}
-.place-info h3{font-size:1.25rem}
-.place-info p{font-size:1.15rem}
-.closing p:not(.script){font-size:1.5rem}
-
-/* Fecha y cuenta regresiva */
-.date-month{font-size:1.3rem}
-.date-row>span{font-size:.85rem}
-.date-day small{font-size:.8rem}
-.time-box{min-width:56px}
-.time-box span{font-size:2.4rem}
-.time-box p{font-size:.7rem}
-
-/* Botones */
-.btn{font-size:.95rem}
-
-/* Texto de la historia: columna de texto más ancha para que la letra crezca */
-.story-photos{flex:0 0 47%}
-
-/* ===== TÍTULOS MÁS CHICOS (para que no se partan) ===== */
-.place-info .script.big{
-  font-size:calc(min(100vw,480px) * .075);   /* se adapta al ancho del celular */
-  line-height:1.1;
-  white-space:nowrap;                        /* "Lugar del evento" siempre en una línea */
-}
-.center-section .script.big{font-size:2.1rem}   /* El mejor regalo..., Dress code */
-.rsvp-card .script.big{font-size:2.1rem}        /* Confirmación de asistencia */
-.date-section .script.big{font-size:2.8rem}     /* Faltan */
-.closing .script.big{font-size:3.2rem}
-
-/* ===== FOTO DEL LUGAR: tamaño fijo, centrada, sin deformarse ===== */
-/* ===== FOTO DEL LUGAR: como estaba originalmente (con su marco hecho a mano) ===== */
-.place-section{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding:calc(var(--sec-y)*.6) 0}
-.place-photo{width:100%;height:auto;align-self:stretch;margin:16px 0;display:block;object-fit:cover;object-position:left center;border:0;aspect-ratio:auto;box-shadow:none;filter:drop-shadow(0 6px 12px rgba(16,38,141,.22))}
-
-.center-section .script.big{font-size:1.7rem}
