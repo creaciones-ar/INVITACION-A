@@ -163,8 +163,8 @@ function fitStory() {
   const t = document.querySelector('.story-text');
   const box = document.querySelector('.story-photos');
   if (!t || !box || !box.offsetHeight) return;      // todavía oculto o sin cargar
-  const target = box.offsetHeight * 0.90;           // 0.90 = descuenta el borde transparente de los marcos
-  let lo = 11, hi = 24;
+ const target = box.offsetHeight * 0.96;
+let lo = 11, hi = 28;
   for (let i = 0; i < 12; i++) {
     const mid = (lo + hi) / 2;
     t.style.fontSize = mid + 'px';
