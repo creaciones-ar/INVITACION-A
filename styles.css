@@ -1,4 +1,4 @@
-/* VERSION 3.2 (ordenada) - Valentina (azul #10268d + mármol) */
+/* VERSION 3.3 (ordenada) - Valentina (azul #10268d + mármol) */
 @font-face{font-family:'Slight';src:url('Slight.woff2') format('woff2'),url('Slight.otf') format('opentype'),url('Slight.ttf') format('truetype');font-display:swap}
 
 /* =====================================================
@@ -159,7 +159,7 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 /* =====================================================
    5. PORTADA
    ===================================================== */
-.cover{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:230px 24px 6px}
+.cover{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:170px 24px 6px}   /* CAMBIO 6: antes 230px, ahora sube la portada */
 .cover-name{width:100%;display:flex;justify-content:center;margin:6px 0 12px}
 .cover-name img{width:min(88%,380px);height:auto;display:block}
 .player{width:100%;max-width:300px;margin:10px 0 18px}
@@ -235,7 +235,7 @@ img.ico-gif:not([src]){display:none}
 .place-info{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px}
 .place-info .script.big{font-size:calc(min(100vw,480px) * .075);line-height:1.1;white-space:nowrap;color:var(--navy)}
 .place-info h3{font-weight:600;font-size:1.25rem}
-.place-info p{font-weight:500;font-size:1.15rem}
+.place-info p{font-weight:500;font-size:.95rem;white-space:nowrap}   /* CAMBIO 7: dirección en una sola línea (antes 1.15rem) */
 
 /* =====================================================
    10. DOS FOTOS FINALES
