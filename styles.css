@@ -1,4 +1,4 @@
-/* VERSION 3 (ordenada) - Valentina (azul #10268d + mármol) */
+/* VERSION 3.1 (ordenada) - Valentina (azul #10268d + mármol) */
 @font-face{font-family:'Slight';src:url('Slight.woff2') format('woff2'),url('Slight.otf') format('opentype'),url('Slight.ttf') format('truetype');font-display:swap}
 
 /* =====================================================
@@ -26,7 +26,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-height:1.6;background:linear-gradient(#e9eef9,#f3f5fb) fixed}
 .hidden{display:none!important}
-.script{font-family:'Slight','Great Vibes',cursive;font-weight:400}
+/* CAMBIO 1: todos los títulos script usan Pinyon Script (antes 'Slight') */
+.script{font-family:var(--titulo);font-weight:400}
 .script.big{font-size:2.4rem;line-height:1.15;text-wrap:balance}
 
 /* =====================================================
@@ -37,7 +38,8 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 #welcome-screen::before{top:0;background-image:var(--img-arriba);-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 65%,transparent 100%)}
 #welcome-screen::after{bottom:0;background-image:var(--img-abajo);-webkit-mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%);mask-image:linear-gradient(to top,#000 0,#000 65%,transparent 100%)}
 .welcome-content{position:relative;z-index:3;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px}
-.neon{font-family:'Slight','Great Vibes',cursive;font-weight:400;font-size:clamp(3.8rem,19vw,5.8rem);line-height:1.1;color:var(--navy);text-shadow:0 2px 12px rgba(255,255,255,.95)}
+/* CAMBIO 2: "Valentina" de la bienvenida con Pinyon Script */
+.neon{font-family:var(--titulo);font-weight:400;font-size:clamp(3.8rem,19vw,5.8rem);line-height:1.1;color:var(--navy);text-shadow:0 2px 12px rgba(255,255,255,.95)}
 .welcome-sub{font-family:'Lato',sans-serif;letter-spacing:.35em;padding-left:.35em;color:var(--navy);text-transform:uppercase;font-size:.85rem;font-weight:700;text-shadow:0 0 8px rgba(255,255,255,.95)}
 
 .envelope{position:relative;width:min(86vw,380px);aspect-ratio:3/2;margin:26px 0 18px;perspective:1100px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 18px 26px rgba(16,38,141,.4))}
@@ -76,7 +78,8 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
   background:radial-gradient(circle at 32% 28%,#ffffff 0,#eef1f6 20%,#b5bfce 55%,#7f8b9f 100%);
   box-shadow:0 5px 12px rgba(8,21,88,.5),inset 0 2px 3px rgba(255,255,255,.9),inset 0 -4px 6px rgba(60,75,100,.45);
   transition:transform .45s ease,opacity .45s ease}
-.seal span{font-family:'Slight','Great Vibes',cursive;font-weight:400;font-size:1.7rem;line-height:1;color:var(--navy);text-shadow:0 1px 0 rgba(255,255,255,.85);display:block;transform:translate(0,1px);pointer-events:none}
+/* CAMBIO 3: la "V" del sello con Pinyon Script */
+.seal span{font-family:var(--titulo);font-weight:400;font-size:1.7rem;line-height:1;color:var(--navy);text-shadow:0 1px 0 rgba(255,255,255,.85);display:block;transform:translate(0,1px);pointer-events:none}
 .seal::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,255,255,.9);animation:ring 1.8s ease-out infinite;pointer-events:none}
 .seal::after{content:"";position:absolute;inset:11%;border-radius:50%;border:1.5px solid rgba(70,85,110,.45);box-shadow:inset 0 2px 4px rgba(60,75,100,.35),0 1px 0 rgba(255,255,255,.7);pointer-events:none}
 @keyframes ring{from{transform:scale(.85);opacity:.9}to{transform:scale(1.5);opacity:0}}
@@ -145,15 +148,15 @@ body{font-family:'Lato',sans-serif;color:var(--navy);text-align:center;line-heig
 .note{font-size:.9rem;letter-spacing:.08em;opacity:.85}
 .alias{font-size:1.15rem;font-weight:700;letter-spacing:.12em}
 
-/* Botones (siguen en Lato) */
-.btn{display:inline-block;min-width:184px;margin-top:12px;padding:15px 30px 9px calc(30px + .15em);border-radius:25px;font-family:'Lato',sans-serif;font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:.15em;text-align:center;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s;-webkit-appearance:none;appearance:none}
+/* Botones (siguen en Lato) - CAMBIO 5: más chicos y con el texto centrado */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:150px;margin-top:12px;padding:12px 24px 11px calc(24px + .15em);border-radius:999px;font-family:'Lato',sans-serif;font-weight:700;font-size:.8rem;line-height:1;letter-spacing:.15em;text-align:center;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s;-webkit-appearance:none;appearance:none}
 .btn.solid{
-  margin:17px 5px 5px;padding-top:13px;padding-bottom:7px;color:#fff;
-  border:3px solid transparent;
+  margin:14px 4px 4px;color:#fff;
+  border:2px solid transparent;
   background:linear-gradient(90deg,#071747 0%,#10268d 50%,#071747 100%) padding-box,
              linear-gradient(90deg,#8e99ad,#ffffff 50%,#8e99ad) border-box;
-  box-shadow:0 0 0 5px #1b3a7c,0 8px 16px rgba(16,38,141,.38),
-             inset 0 2px 3px rgba(255,255,255,.22),inset 0 -4px 6px rgba(0,0,0,.35)}
+  box-shadow:0 0 0 3px #1b3a7c,0 5px 10px rgba(16,38,141,.3),
+             inset 0 2px 3px rgba(255,255,255,.22),inset 0 -3px 5px rgba(0,0,0,.35)}
 .btn:hover{opacity:.85}
 
 /* =====================================================
@@ -229,8 +232,9 @@ img.ico-gif:not([src]){display:none}
 /* =====================================================
    9. LUGAR (foto con marco hecho a mano, sin bordes extra)
    ===================================================== */
-.place-section{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding:calc(var(--sec-y)*.6) 0}
-.place-photo{width:100%;height:auto;align-self:stretch;margin:16px 0;display:block;object-fit:cover;object-position:left center;filter:drop-shadow(0 6px 12px rgba(16,38,141,.22))}
+.place-section{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:calc(var(--sec-y)*.6) 0}
+/* CAMBIO 4: la foto se ve completa, con su forma original (sin recortar ni estirar) */
+.place-photo{width:100%;height:auto;align-self:center;margin:16px 0;display:block;object-fit:contain;filter:drop-shadow(0 6px 12px rgba(16,38,141,.22))}
 .place-info{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px}
 .place-info .script.big{font-size:calc(min(100vw,480px) * .075);line-height:1.1;white-space:nowrap;color:var(--navy)}
 .place-info h3{font-weight:600;font-size:1.25rem}
@@ -286,4 +290,4 @@ img.ico-gif:not([src]){display:none}
 .data-row{padding:16px 0 20px;border-top:1px solid rgba(16,38,141,.18)}
 .data-label{font-family:var(--serif);font-weight:600;font-size:.85rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
 .data-value{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.3;margin-top:4px;word-break:break-all;letter-spacing:.03em;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
-.modal .btn.solid{min-width:160px;margin:14px 5px 4px}
+.modal .btn.solid{min-width:140px;margin:12px 4px 4px}
