@@ -176,6 +176,27 @@
   </div>
 </main>
 
-<script src="script.js?v=42"></script>
+<!-- VENTANA DE DATOS PARA EL REGALO -->
+<div id="gift-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="gift-title">
+  <div class="modal-card">
+    <button class="modal-close" id="close-gift" aria-label="Cerrar">&times;</button>
+    <p class="modal-kicker">Datos para tu regalo</p>
+    <h3 class="modal-title" id="gift-title"></h3>
+
+    <div class="data-row" id="row-alias">
+      <p class="data-label">Alias</p>
+      <p class="data-value" id="alias"></p>
+      <button class="btn solid copy-btn" data-copy="alias" data-label="Copiar alias">Copiar alias</button>
+    </div>
+
+    <div class="data-row" id="row-cvu">
+      <p class="data-label">CVU</p>
+      <p class="data-value" id="cvu"></p>
+      <button class="btn solid copy-btn" data-copy="cvu" data-label="Copiar CVU">Copiar CVU</button>
+    </div>
+  </div>
+</div>
+  
+<script src="script.js?v=43"></script>
 </body>
 </html>
