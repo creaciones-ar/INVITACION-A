@@ -6,6 +6,8 @@ const CONFIG = {
   whatsapp: "5491158265942",                  // 54 + 9 + número (CONFIRMAR que sea el de Valentina)
   mapsUrl: "https://maps.app.goo.gl/wMsCjcH23YjNU4ht8?g_st=aw",   // link de Google Maps del salón. Vacío = no aparece el botón
   alias: "valen.zof",                         // alias o CBU (CONFIRMAR). Vacío = no aparece la sección de regalos
+  cvu: "0000003100015179991057",              // CVU o CBU. Vacío = no aparece esa fila
+  titular: "Valentina Jazmín Zof",            // nombre del titular de la cuenta
   confirmarAntes: "Confirmar antes del 1 de diciembre",   // Vacío = no aparece
   mensajeWa: "Hola! Confirmo mi asistencia a los XV de Valentina"
 };
