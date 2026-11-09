@@ -344,19 +344,8 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 .closing .script.big{font-size:3.2rem}
 
 /* ===== FOTO DEL LUGAR: tamaño fijo, centrada, sin deformarse ===== */
-.place-section{
-  align-items:center;            /* antes estiraba la foto al alto de la columna */
-  padding:calc(var(--sec-y)*.6) 0;
-}
-.place-photo{
-  align-self:center;
-  width:calc(100% - 16px);       /* deja aire a la izquierda, no pegada al borde */
-  margin:0 0 0 14px;
-  height:auto;
-  aspect-ratio:3/4;              /* proporción fija, no cambia aunque el texto crezca */
-  object-fit:cover;
-  object-position:center 25%;    /* prioriza la cara */
-  border:5px solid var(--navy);  /* mismo marco que las otras fotos */
-  box-shadow:0 8px 18px rgba(16,38,141,.3);
-  filter:none;
-}
+/* ===== FOTO DEL LUGAR: como estaba originalmente (con su marco hecho a mano) ===== */
+.place-section{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding:calc(var(--sec-y)*.6) 0}
+.place-photo{width:100%;height:auto;align-self:stretch;margin:16px 0;display:block;object-fit:cover;object-position:left center;border:0;aspect-ratio:auto;box-shadow:none;filter:drop-shadow(0 6px 12px rgba(16,38,141,.22))}
+
+.center-section .script.big{font-size:1.7rem}
