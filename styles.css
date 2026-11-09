@@ -241,3 +241,50 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 .data-label{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.85rem;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase}
 .data-value{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;line-height:1.3;margin-top:4px;word-break:break-all;letter-spacing:.03em}
 .modal .btn.solid{min-width:160px;margin:14px 5px 4px}
+
+/* ===== TIPOGRAFÍAS ===== */
+:root{
+  /* Probá una por vez: 'Great Vibes' | 'Allura' | 'Pinyon Script' */
+  --titulo:'Great Vibes',cursive;
+  --serif:'Cormorant Garamond',serif;
+}
+
+/* Títulos de las secciones (Faltan, Lugar del evento, Dress code, Regalo, Confirmación) */
+.date-section .script.big,
+.place-info .script.big,
+.center-section .script.big,
+.rsvp-card .script.big{
+  font-family:var(--titulo);
+  font-weight:400;
+}
+
+/* Texto de la historia: Cormorant derecha, como "Un nuevo capítulo" */
+.story-text{
+  font-family:var(--serif);
+  font-style:normal;
+  font-weight:500;
+  letter-spacing:.01em;
+}
+
+/* Títulos chicos en mayúsculas espaciadas */
+.kicker{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:.95rem;
+  letter-spacing:.3em;
+  padding-left:.3em;
+  text-transform:uppercase;
+}
+
+/* Textos de apoyo en Cormorant */
+.small,.label,.small-caps,.note,
+.place-info h3,.place-info p,
+.date-month,.date-row>span,.time-box p,
+.closing p:not(.script){
+  font-family:var(--serif);
+}
+.small,.place-info p,.closing p:not(.script){font-weight:500}
+.label,.small-caps,.date-month,.place-info h3{font-weight:600}
+.small{font-size:1rem}
+.place-info p{font-size:.95rem}
+.closing p:not(.script){font-size:1.3rem}
