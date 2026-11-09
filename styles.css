@@ -288,3 +288,46 @@ img.ico-gif:not([src]){display:none}      /* si un ícono no se encuentra, no de
 .small{font-size:1rem}
 .place-info p{font-size:.95rem}
 .closing p:not(.script){font-size:1.3rem}
+
+/* ===== AJUSTE DE TAMAÑOS (todo un poco más grande) ===== */
+
+/* Números siempre "derechos" (sin estilo antiguo de Cormorant) */
+.story-text,.small,.label,.small-caps,.note,.kicker,
+.place-info h3,.place-info p,.date-month,.date-row>span,
+.date-day small,.time-box p,.closing p{
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1;
+}
+
+/* Títulos script */
+.date-section .script.big{font-size:3.4rem}
+.center-section .script.big{font-size:3rem}
+.place-info .script.big{font-size:2.5rem;line-height:1.05}
+.rsvp-card .script.big{font-size:2.8rem}
+.closing .script.big{font-size:3.6rem}
+
+/* Títulos chicos en mayúsculas espaciadas */
+.kicker{font-size:1.2rem}
+.label{font-size:1rem}
+.small-caps{font-size:.9rem;max-width:340px}
+
+/* Textos de apoyo */
+.small{font-size:1.2rem;max-width:340px;line-height:1.5}
+.note{font-size:.9rem}
+.place-info h3{font-size:1.25rem}
+.place-info p{font-size:1.15rem}
+.closing p:not(.script){font-size:1.5rem}
+
+/* Fecha y cuenta regresiva */
+.date-month{font-size:1.3rem}
+.date-row>span{font-size:.85rem}
+.date-day small{font-size:.8rem}
+.time-box{min-width:56px}
+.time-box span{font-size:2.4rem}
+.time-box p{font-size:.7rem}
+
+/* Botones */
+.btn{font-size:.95rem}
+
+/* Texto de la historia: columna de texto más ancha para que la letra crezca */
+.story-photos{flex:0 0 47%}
