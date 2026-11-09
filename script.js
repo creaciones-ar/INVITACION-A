@@ -1,10 +1,10 @@
 /* ===== CONFIGURACIÓN (editar solo acá) ===== */
 const CONFIG = {
   fecha: "December 12, 2026 21:00:00",        // sábado 12 de diciembre, 21:00 (HORA PROVISORIA: confirmar con Valentina)
-  youtubeId: "j3ObHjm1fAE",                   // código del video de YouTube de la canción. Vacío = no aparece el reproductor
-  inicio: 30,                                 // segundo desde el que suena la canción (30 = salta la intro)
-  whatsapp: "5491165286830",                  // 54 + 9 + número (CONFIRMAR que sea el de Valentina)
-  mapsUrl: "https://maps.app.goo.gl/y8uJtqJ5FoqePBLZ6",   // link de Google Maps del salón. Vacío = no aparece el botón
+  youtubeId: "https://youtu.be/Zg8L-Pfroww?si=2PYdkeUou_nL8ODE&t=15",                   // código del video de YouTube de la canción. Vacío = no aparece el reproductor
+  inicio: 15,                                 // segundo desde el que suena la canción (30 = salta la intro)
+  whatsapp: "5491158265942",                  // 54 + 9 + número (CONFIRMAR que sea el de Valentina)
+  mapsUrl: "https://maps.app.goo.gl/wMsCjcH23YjNU4ht8?g_st=aw",   // link de Google Maps del salón. Vacío = no aparece el botón
   alias: "valentina",                         // alias o CBU (CONFIRMAR). Vacío = no aparece la sección de regalos
   confirmarAntes: "Confirmar antes del 1 de diciembre",   // Vacío = no aparece
   mensajeWa: "Hola! Confirmo mi asistencia a los XV de Valentina"
